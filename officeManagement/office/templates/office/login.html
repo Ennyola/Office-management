@@ -1,0 +1,34 @@
+{% load static %}
+
+<link rel = "stylesheet" type = "text/css" href = "{% static 'office/style.min.css' %}"/>
+
+
+
+
+
+        
+        <div align = "center">
+             <h3> Login </h3>
+            <form action = "" method = "POST">
+                {% csrf_token %}
+                
+                <input type = "text" name = "username" placeholder = "username"><br> <br>
+
+                <input type = "password"  name = "password" placeholder = "password"><br>
+                
+                <input type = "submit" value = "Enter">
+
+            </form>
+        </div>
+        
+
+
+        {% comment %} {% if messages %}
+
+            {% for message in messages %} 
+                {{message}}
+            {% endfor %}   
+
+
+        {% endif %} {% endcomment %}
+

@@ -1,0 +1,37 @@
+{% load static %}
+ {% comment %} <img src = "{% static "office/scotland-1761292__340.jpg" %}"> {% endcomment %}
+
+<link rel = "stylesheet" type = "text/css" href = "{% static 'office/style.css' %}"/>
+
+<header>
+	<h2> Halogen Security Company </h2>
+
+	 {% comment %} <div style>
+		<p> Name : {{ user }}  </p>
+		<p>Department: {{ staff.department.name }}  </p>
+		<p> Staff ID : {{staff.staff_id }} </p>
+	</div>  {% endcomment %}
+
+	<nav>
+		<ul>
+			<li><a href = " {% url "office:user_details" %} "> Home </a> </li>
+			<li><a href = " {% url "office:my_info" %} "> My Info </a> </li> 
+			<li> Files</li>
+			<li><a href=" {% url 'office:logout' %} ">Logout</a></li>
+		</ul>
+	</nav>
+
+</header>
+
+<h1 id = "welcome"> Welcome {{staff.name}} </h1>
+
+<div  id = "link">
+		<a href=" {% url "office:status" %} " class ="status" id = "statu"> Click here to check your Leave status</a>
+		<a href = " {% url "office:change" %} " class = "details" id = "detail"> Click here to change your details</a>
+
+	</div>
+
+</div>
+
+
+

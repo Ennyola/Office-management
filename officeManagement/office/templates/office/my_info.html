@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+     {% load static %}
+	<title>my_info</title>
+    <link> </link>
+</head>
+<body>
+    <header>
+		<h2> Halogen Security Company </h2>
+
+		 {% comment %} <div style>
+			<p> Name : {{ user }}  </p>
+			<p>Department: {{ staff.department.name }}  </p>
+			<p> Staff ID : {{staff.staff_id }} </p>
+		</div>  {% endcomment %}
+
+		<nav>
+			<ul>
+				<li><a href = " {% url "office:user_details" %} "> Home </a> </li>
+				<li><a href = " {% url "office:my_info" %} "> My Info </a> </li> 
+				<li> Files</li>
+				<li><a href=" {% url 'office:logout' %} ">Logout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section>
+		<label for = "name"> Name :</label>
+		<p> {{staff.name}} </p>
+
+		<label for = "email"> Email :</label>
+        <p> {{staff.email}} </p>
+
+        <label for = "age"> Age :</label>
+        <p> {{staff.age}} </p>
+
+        <label for = "department"> Department :</label>
+        <p> {{staff.department.name}} </p>
+
+        <label for = "staff_id"> Staff_ID :</label>
+        <p> {{staff.staff_id}} </p>
+
+        <label for = "address"> Address :</label>
+        <p> {{staff.address}} </p>
+	</section>
+
+
+
+</body>
+</html>
