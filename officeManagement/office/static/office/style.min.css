@@ -41,6 +41,8 @@ input[type="text"] {
     border-radius: 38px;
     width: 300px;
     padding: 0 2rem;
+    font-family: monospace;
+    font-size: 19px;
 }
 
 input[type="password"] {

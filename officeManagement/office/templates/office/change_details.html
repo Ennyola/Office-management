@@ -1,29 +1,22 @@
 <head>
     {% load static  %}
-    <link> <link>
+    <link rel = "stylesheet" type = "text/css" href = "{% static "office/my_info.css"  %}"/>
 
 </head>
 <body>
     <header>
-	<h2> Halogen Security Company </h2>
-
-	 {% comment %} <div style>
-		<p> Name : {{ user }}  </p>
-		<p>Department: {{ staff.department.name }}  </p>
-		<p> Staff ID : {{staff.staff_id }} </p>
-	</div>  {% endcomment %}
+	<h2> Halogen Security Company </h2>.
 
 	<nav>
 		<ul>
 			<li><a href = " {% url "office:user_details" %} "> Home </a> </li>
 			<li><a href = " {% url "office:my_info" %} "> My Info </a> </li>
-			<li> Files</li>
 			<li><a href=" {% url 'office:logout' %} ">Logout</a></li>
 		</ul>
 	</nav>
 </header>
 
-	<section>
+	<section align = "center">
 		<form action = "{% url "office:init_details" %}" method="POST">
 		 {% csrf_token %} 
 

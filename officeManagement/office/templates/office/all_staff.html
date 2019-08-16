@@ -1,0 +1,37 @@
+<html>
+    <head>
+    {% load static %}
+    
+    </head>
+    <body>
+    <h2> Halogen Security Company </h2>
+		<h4 style = "float : right; margin-bottom : 10px; margin:auto; padding: auto;" > {{staff.name}} </h4>
+
+		<nav style = "margin-top: 100px;">
+			<ul>
+				<li><a href = " {% url "office:user_details" %} "> Home </a> </li>
+				<li><a href = " {% url "office:my_info" %} "> My Info </a> </li>
+				<li><a href=" {% url 'office:logout' %} ">Logout</a></li>
+			</ul>
+    <table>
+        <tr>
+            <Span> Staff </Span>
+            <Span style = "float :right; margin-right: 89px;"> Leave Status </Span>
+        <tr>
+
+    <table>
+    <br>
+    <br>
+        
+    <section>
+    {% for staff in staffs %}
+        <span>{{staff.name}}</span>
+
+        <span style = "float :right; margin-right: 110px;"> {{staff.status}} </span>
+
+        <hr>
+        
+    {% endfor %}
+    <section>
+    </body>
+</html>

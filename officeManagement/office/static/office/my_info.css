@@ -1,9 +1,8 @@
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: linear-gradient(#3A1C71, #D76D77, #FFAF7B);
+    background: linear-gradient( #f3904f, #D76D77, #ff6a00) no-repeat;
+    height: 729px;
     color: #fffcdc;
-    margin: auto;
-    padding: auto;
 }
 
 header {
@@ -25,7 +24,7 @@ a {
     color: white;
 }
 
-a:hover {
+header>nav>ul>li>a:hover {
     color: black;
 }
 
@@ -57,8 +56,4 @@ li {
     color: black;
     border: 4px dashed blue;
     padding: 67px;
-}
-
-#link>a:hover {
-    color: aqua;
 }

@@ -36,6 +36,9 @@ def createuser(request):
     context = {'form' : form}
     return render(request,"office/signup.html", context)
 
+def init_login(request):
+    return render(request,"office/login.html")
+
 def login_view(request):
     username = request.POST.get("username", None)
     password = request.POST.get("password", None)
@@ -45,11 +48,12 @@ def login_view(request):
         return redirect("office:user_details")
     else:
         messages.error(request, "Invalid Login Credentials")
-    return render(request,"office/login.html")
+        return redirect("office:init_login")
+    
 
 def logout_view(request):
     logout(request)
-    return redirect("office:login")
+    return redirect("office:init_login")
 
 def user_details(request):
     if request.user.is_authenticated:
@@ -58,7 +62,7 @@ def user_details(request):
         staff = Staff.objects.get(user = user_id)
     else:
         messages.error(request, "Please Login First")
-        return redirect("office:login")
+        return redirect("office:init_login")
     
     context = {"user": user, "staff" : staff }
 
@@ -82,8 +86,8 @@ def status(request):
             print("not due for leave")
     else:
         messages.error(request, "Please Login First")
-        return redirect("office:login")
-    context = {"user":user, "staff": staff}
+        return redirect("office:init_login")
+    context = {"user":user, "staff": staff, "date": six_months_time}
     return render(request, "office/status.html", context)
 
 
@@ -96,7 +100,7 @@ def change_details(request):
         return render(request,"office/change_details.html",context)
     else:
         messages.error(request, "Please Login First")
-        return redirect("office:login")
+        return redirect("office:init_login")
 
 
 def init_details(request):
@@ -113,12 +117,11 @@ def init_details(request):
         staff.address = address
         staff.email = email
         staff.save()
-        messages.success(request, "User info edited successfully")
         return redirect("office:my_info")
 
     else:
         messages.error(request, "Please Login First")
-        return redirect("office:login")
+        return redirect("office:init_login")
     context = {"user": user, "staff":staff}
 
 def my_info(request):
@@ -130,4 +133,10 @@ def my_info(request):
         return render(request, "office/my_info.html", context)
     else:
         messages.error(request, "Please Login First")
-        return redirect("office:login")
+        return redirect("office:init_login")
+
+def all_staff(request):
+    user = request.user
+    staffs = Staff.objects.all()
+    context = {"user" : user , "staffs": staffs}
+    return render(request, "office/all_staff.html", context)

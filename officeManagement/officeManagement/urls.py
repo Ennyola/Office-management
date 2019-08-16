@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth import views
+from django.conf.urls import url
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('office/', include('office.urls'))
+    path('office/', include('office.urls')),
+    url(r'^auth/', include('social_django.urls', namespace = 'social'))
 ]

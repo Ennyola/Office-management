@@ -3,7 +3,7 @@
 <head>
      {% load static %}
 	<title>my_info</title>
-    <link> </link>
+    <link rel = "stylesheet" type = "text/css" href = "{% static "office/my_info.css"  %}"/>
 </head>
 <body>
     <header>
@@ -19,13 +19,14 @@
 			<ul>
 				<li><a href = " {% url "office:user_details" %} "> Home </a> </li>
 				<li><a href = " {% url "office:my_info" %} "> My Info </a> </li> 
-				<li> Files</li>
+				<li> <a href = "{% url "office:change" %}"> Edit profile </a> <li>	
 				<li><a href=" {% url 'office:logout' %} ">Logout</a></li>
+				
 			</ul>
 		</nav>
 	</header>
 
-	<section>
+	<section align = "center">
 		<label for = "name"> Name :</label>
 		<p> {{staff.name}} </p>
 
